@@ -68,7 +68,7 @@ class GitCommitCommand(GitWindowCommand):
             if line and not line[0].isspace():
                 has_staged_files = True
                 break
-        if not has_staged_files:
+        if not has_staged_files and self.extra_options != '--amend':
             self.panel("Nothing to commit")
             return
         # Okay, get the template!
